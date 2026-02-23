@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    image: raj01docker/production-devops-app:latest
+    container_name: production-app
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - APP_ENV=production
+
+  nginx:
+    image: nginx:latest
+    container_name: production-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
