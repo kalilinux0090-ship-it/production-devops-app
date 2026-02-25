@@ -33,7 +33,7 @@ jobs:
       with:
         host: 13.232.82.158
         username: ubuntu
-        key: ${{ secrets.EC2_SSH_KEY }        
+        key: ${{ secrets.EC2_SSH_KEY }}       
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/production-devops-app:latest
           docker stop prod-app || true
