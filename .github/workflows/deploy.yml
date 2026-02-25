@@ -34,7 +34,7 @@ jobs:
         host: YOUR_EC2_PUBLIC_IP
         username: ubuntu
         key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
+13.232.82.158        script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/production-devops-app:latest
           docker stop prod-app || true
           docker rm prod-app || true
